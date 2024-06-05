@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to my personal website</title>
+    <link href="find_me.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<header class="header">
+    <nav class="navbar">
+        <a href="index.html" class="logo">ⒶⒾⓃ ⓈⓎⓊⒽⒶⒹⒶ.</a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="my_family.html">My family</a>
+            </li>
+            <li class="nav-item">
+                <a href="my_friends.html">My friends</a>
+            </li>
+            <li class="nav-item">
+                <a href="my_hometown.html">My hometown</a>
+            </li>
+            <li class="nav-item">
+                <a href="where_i_study_at.html">Where I study at</li>
+            <li class="nav-item">
+                <a href="my_hobbies.html">My hobbies</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    <div id="scrolltop"></div>
+</header>
+<div class="head">
+    <div class="main">
+        <ul class="main-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="about_me.html">About me</a></li>
+            <li><a href="find_me.html">Find me</a></li>
+        </ul>
+    </div>
+</div>
+<br><br>
+<div class="banner">
+    <img src="image/findmebann.jpg" alt="Banner Image">
+    <div class="content"></div>
+</div>
+<br><br>
+<div class="section">
+    <h2 class="section-title">My E-mail
+</h2>
+<div class="flip-box">
+    <div class="flip-box-inner">
+        <div class="flip-box-front">
+            <img src="image/email.jpg" alt="hometown" />
+        </div>
+        <div class="flip-box-back">ainsyuhada7904@gmail.com</div>
+    </div>
+</div>
+<br><br>
+<div class="section">
+    <h2 class="section-title">My contact
+</h2>
+<div class="flip-box">
+    <div class="flip-box-inner">
+        <div class="flip-box-front">
+            <img src="image/call.jpg" alt="hometown" />
+        </div>
+        <div class="flip-box-back">011-2409-0279</div>
+    </div>
+</div>
+<br><br>
+<br><br>
+<div class="banner">
+    <img src="image/bann.jpg" alt="Banner Image">
+    <div class="content"></div>
+</div>
+<br><br>
+<br><br>
+<footer>
+<div class="footer-content">
+<hr>
+<br>
+<h3>My media sosial</h3>
+<div class="wrapper">
+  <a href="https://pin.it/5YeT4o9Uj" class="icon pinterest">
+    <div class="tooltip">pinterest</div>
+    <span><i class="fab fa-pinterest-p"></i></span>
+  </a>
+  <a href="https://www.tiktok.com/@lisajenifer79?_t=8mjJ3Su7OyY&_r=1" class="icon tiktok">
+    <div class="tooltip">tiktok</div>
+    <span><i class="fab fa-tiktok"></i></span>
+  </a>
+  <a href="https://www.instagram.com/seroja_ain?igsh=MnhzZ3YxeXNnNGRl&utm_source=qr" class="icon instagram">
+    <div class="tooltip">Instagram</div>
+    <span><i class="fab fa-instagram"></i></span>
+  </a>
+  <a href="https://github.com/Syuhadaain" class="icon github">
+    <div class="tooltip">Github</div>
+    <span><i class="fab fa-github"></i></span>
+  </a>
+  <a href="https://youtube.com/@ainsyuhada1140?si=T8VdNM1OMZPN74-6" class="icon youtube">
+    <div class="tooltip">Youtube</div>
+    <span><i class="fab fa-youtube"></i></span>
+  </a>
+<h2>last update 4/june/2024</h2>
+</div>
+<hr>
+    <div class="foot_bottom">
+        <p>copyright &copy;2024 Ain syuhada. designed by Ain</p>
+    </div>
+</footer>
+
+<a href="#scrolltop">
+    <div class="scroll-arrow"></div>
+    <div id="scroll-text">top</div>
+</a>
+
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll(".nav-item a");
+
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
+</script>
+</body>
+</html>

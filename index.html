@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to my personal website</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font Awesome 5.15.1 CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kalam:wght@300;400;700&family=Kaushan+Script&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kalam:wght@300;400;700&family=Kaushan+Script&family=Sriracha&display=swap" rel="stylesheet">
+<style>
+        body {
+            background-image: url('image/bg4.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        .nav-menu a {
+            color: #D3D3D3; 
+            text-decoration: none;
+        }
+        .nav-menu a:hover {
+            color: #808080; 
+        }
+        .navbar a.logo {
+            color: #DCDCDC 
+        }
+        
+        #frame {
+            margin: 20px auto;
+            width: 750px;
+            max-width: 100%;
+            text-align: center;
+        }
+        #frame input[type=radio] {
+            display: none;
+        }
+        #frame label {
+            cursor: pointer;
+            text-decoration: none;
+        }
+        #slides {
+            padding: 10px;
+            width:100%;
+            border: 5px solid silver;  
+            background: 0,0,0;
+            position: relative;
+            z-index: 1;
+        }
+        #overflow {
+            width: 95%;
+            overflow: hidden;
+        }
+        #frame1:checked~#slides .inner {
+            margin-left: 0;
+        }
+        #frame2:checked~#slides .inner {
+            margin-left: -100%;
+        }
+        #frame3:checked~#slides .inner {
+            margin-left: -200%;
+        }
+        #frame4:checked~#slides .inner {
+            margin-left: -300%;
+        }
+        #slides .inner {
+            transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+            width: 400%;
+            line-height: 0;
+            height: 300px;
+        }
+        #slides .frame {
+            width: 25%;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        #slides .frame img {
+            width: 200%;
+            height: 100%;
+            align-items: center;
+
+        }
+        #controls {
+            margin: -180px 0 0 0;
+            width: 100%;
+            height: 50px;
+            z-index: 3;
+            position: relative;
+        }
+        #controls label {
+            transition: opacity 0.2s ease-out;
+            display: none;
+            width: 60px;
+            height: 50px;
+            opacity: .4;
+        }
+        #controls label:hover {
+            opacity: 1;
+        }
+        #frame1:checked~#controls label:nth-child(2),
+        #frame2:checked~#controls label:nth-child(3),
+        #frame3:checked~#controls label:nth-child(4),
+        #frame4:checked~#controls label:nth-child(1) {
+            background: url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+            float: right;
+            margin: 0 -50px 0 0;
+            display: block;
+        }
+        #frame1:checked~#controls label:nth-last-child(2),
+        #frame2:checked~#controls label:nth-last-child(3),
+        #frame3:checked~#controls label:nth-last-child(4),
+        #frame4:checked~#controls label:nth-last-child(1) {
+            background: url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+            float: left;
+            margin: 0 0 0 -50px;
+            display: block;
+        }
+        #bullets {
+            margin: 150px 0 0;
+            text-align: center;
+        }
+        #bullets label {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: #ccc;
+            margin: 0 10px;
+        }
+        #frame1:checked~#bullets label:nth-child(1),
+        #frame2:checked~#bullets label:nth-child(2),
+        #frame3:checked~#bullets label:nth-child(3),
+        #frame4:checked~#bullets label:nth-child(4) {
+            background: #444;
+        }
+        @media screen and (max-width: 900px) {
+            #frame1:checked~#controls label:nth-child(2),
+            #frame2:checked~#controls label:nth-child(3),
+            #frame3:checked~#controls label:nth-child(4),
+            #frame4:checked~#controls label:nth-child(1),
+            #frame1:checked~#controls label:nth-last-child(2),
+            #frame2:checked~#controls label:nth-last-child(3),
+            #frame3:checked~#controls label:nth-last-child(4),
+            #frame4:checked~#controls label:nth-last-child(1) {
+                margin: 0;
+            }
+            #slides {
+                max-width: calc(100% - 140px);
+                margin: 0 auto;
+            }
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .banner {
+        
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            height: 510px; 
+        }
+        .banner img {
+            width: 100%;
+            height: 110;
+                    }
+        .banner .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+           
+        }
+ .section {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    .section-title {
+        font-size: 48px;
+        margin-bottom: 20px;
+        font-family: 'Dancing Script', cursive;
+        color: silver;
+    }
+
+ .video-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .video-container video {
+        width: 80%;
+        border: 2px solid silver;
+        border-radius: 5%;
+    }
+     .hover-container {
+              background-color: rgba(255, 255, 255, 0.5);
+
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .hover-image {
+            width: 50%; 
+            transition: transform 0.5s ease-in-out;
+            border: 2px solid silver; 
+        }
+
+        .hover-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-family: 'Dancing Script', cursive;
+            transform: translate(-50%, -50%);
+            transition: left 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        .hover-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background-color: rgba(128,128,128);
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        .hover-container:hover .hover-image {
+            transform: translateX(220%);
+        }
+
+        .hover-container:hover .hover-text,
+        .hover-container:hover .hover-box {
+            opacity: 1;
+            z-index: 1;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <nav class="navbar">
+        <a href="index.html" class="logo"> ⒶⒾⓃ ⓈⓎⓊⒽⒶⒹⒶ.</a>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="my_family.html">My family</a>
+            </li>
+            <li class="nav-item">
+                <a href="my_friends.html">My friends</a>
+            </li>
+            <li class="nav-item">
+                <a href="my_hometown.html">My hometown</a>
+            </li>
+            <li class="nav-item">
+                <a href="where_i_study_at.html">Where I study at</a>
+            </li>
+            <li class="nav-item">
+                <a href="my_hobbies.html">My hobbies</a>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+<div id="scrolltop"></div>
+</header>
+
+<div class="head">
+    <div class="main">
+        <ul class="main-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="about_me.html">About me</a></li>
+            <li><a href="find_me.html">Find me</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="body">
+    <div class="container1">
+        <div class="row">
+            <div class="left-side">
+                <div class="info">
+                    <h1>𝓦𝓮𝓵𝓬𝓸𝓶𝓮!</h1><br><br>
+                    <a href="#"><i class="fa fa-quote-left"></i></a>
+                    <h2>Hi there, my name is <span>𝔸𝕚𝕟 𝕤𝕪𝕦𝕙𝕒𝕕𝕒!</span></h2>
+                    <p>or you can just call me 𝔸𝕚𝕟  <br><br>I'm a diploma student in library informatics<br><br>And also a human... </p><br>
+                    <a href="#"><i class="fa fa-quote-right"></i></a>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="about-img">
+                    <img src="image/mepic1.jpg" alt="Ain">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<div id="frame">
+    <input type="radio" name="frame" id="frame1" checked />
+    <input type="radio" name="frame" id="frame2" />
+    <input type="radio" name="frame" id="frame3" />
+    <input type="radio" name="frame" id="frame4" />
+    <div id="slides">
+        <div id="overflow">
+            <div class="inner">
+                <div class="frame frame_1">
+                    <img src="image/slide1.jpg"image" alt="Me">
+                </div>
+                <div class="frame frame_2">
+                    <img src="image/slide2.jpg" alt="Me 2">
+                </div>
+                <div class="frame frame_3">
+                    <img src="image/slide4.jpg" alt="Penang">
+                </div>
+                <div class="frame frame_4">
+                    <img src="image/slide3.jpg" alt="Banner">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="controls">
+        <label for="frame1"></label>
+        <label for="frame2"></label>
+        <label for="frame3"></label>
+        <label for="frame4"></label>
+    </div>
+    <div id="bullets">
+        <label for="frame1"></label>
+        <label for="frame2"></label>
+        <label for="frame3"></label>
+        <label for="frame4"></label>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">Introduction video</h2>
+    <div class="video-container">
+        <video controls>
+            <source src="video/homevideo.mp4" type="video/mp4">
+           
+        </video>
+    </div>
+</div>
+
+<div class="container2">
+    <div class="box">
+        <div class="box-img">
+            <img src="image/fam.jpg" alt="Family">
+        </div>
+        <div class="box-text">
+            <h2>About My Family</h2>
+            <p>I come from a tiny, yet happy family. My family consists of four members, and I'm the youngest....</p>
+            <a href="my_family.html">View more</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-img">
+            <img src="image/friend.jpg" alt="Friends">
+        </div>
+        <div class="box-text">
+            <h2>About My Friends</h2>
+            <p>I don't have many friends, which is OK because I have one actual best buddy.
+...</p>
+            <a href="my_friends.html">View more</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-img">
+            <img src="image/hometown.jpg" alt="Hometown">
+        </div>
+        <div class="box-text">
+            <h2>My Hometown</h2>
+            <p>I was born in Penang and have lived there since....</p>
+            <a href="my_hometown.html">View more</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="container3">
+<div class="box">
+        <div class="box-img">
+            <img src="image/study.jpg" alt="Academic">
+        </div>
+        <div class="box-text">
+            <h2>Where i study at</h2>
+            <p>i curently study at UITM in kedah. i'm a diploma  student in library informatic major...</p>
+            <a href="where_i_study_at.html">View more</a>
+        </div>
+    </div>
+<div class="box">
+        <div class="box-img">
+            <img src="image/hobby.jpg" alt="Hobbies">
+        </div>
+        <div class="box-text">
+            <h2>My hobbies</h2>
+            <p>i love to play bowling, journaling, visit art gallery and museum...</p>
+            <a href="my_hobbies.html">View more</a>
+        </div>
+    </div>
+   <div class="box">
+        <div class="box-img">
+            <img src="image/me2.jpg" alt="About me">
+        </div>
+        <div class="box-text">
+            <h2>little bit about me</h2>
+            <p>Hello, my name is Nur ain syuhada binti shukor, also known as ain. I was born in 2004...</p>
+            <a href="about_me.html">View more</a>
+        </div>
+    </div>
+</div>
+<br><br>
+<section class="hover-container">
+    <img src="image/meself.jpg" alt="Friends" class="hover-image">
+    <div class="hover-box"></div>
+    <div class="hover-text">I'm not a professional web designer.But I'm still learning.
+.</div>
+</section>
+<br><br>
+<footer>
+<div class="footer-content">
+<hr><br>
+<h3>My media sosial</h3>
+<div class="wrapper">
+  <a href="https://pin.it/5YeT4o9Uj" class="icon pinterest">
+    <div class="tooltip">pinterest</div>
+    <span><i class="fab fa-pinterest-p"></i></span>
+  </a>
+  <a href="https://www.tiktok.com/@lisajenifer79?_t=8mjJ3Su7OyY&_r=1" class="icon tiktok">
+    <div class="tooltip">tiktok</div>
+    <span><i class="fab fa-tiktok"></i></span>
+  </a>
+  <a href="https://www.instagram.com/seroja_ain?igsh=MnhzZ3YxeXNnNGRl&utm_source=qr" class="icon instagram">
+    <div class="tooltip">Instagram</div>
+    <span><i class="fab fa-instagram"></i></span>
+  </a>
+  <a href="https://github.com/Syuhadaain" class="icon github">
+    <div class="tooltip">Github</div>
+    <span><i class="fab fa-github"></i></span>
+  </a>
+  <a href="https://youtube.com/@ainsyuhada1140?si=T8VdNM1OMZPN74-6" class="icon youtube">
+    <div class="tooltip">Youtube</div>
+    <span><i class="fab fa-youtube"></i></span>
+  </a>
+<h2>Last update 4/ june/ 2024</h2>
+</div>
+<hr>
+<br><br>
+<div class="foot_bottom">
+<p>copyright &copy;2024 Ain syuhada. designed by Ain</p>
+</div>
+</div>
+ <a href="#scrolltop">
+              <div class="scroll-arrow"></div>
+              <div id="scroll-text">top</div>
+            </a>
+</footer>
+
+<script>
+      // JavaScript to make the slideshow automatic
+    let currentIndex = 1;
+    const totalFrames = 4;
+
+    function switchFrame() {
+        currentIndex++;
+        if (currentIndex > totalFrames) {
+            currentIndex = 1;
+        }
+        document.getElementById(`frame${currentIndex}`).checked = true;
+    }
+
+    setInterval(switchFrame, 3000); // Change slide every 3 seconds
+ const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll(".nav-item a");
+
+    navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
+</script>
+</body>
+</html>
+
